@@ -32,7 +32,7 @@ spritz.py [wpm] [<file1>, <file2>, ...]
 Read from stdin:
 
 ```shell
-cat sample/1-company.txt | spritz.py [wpm>]
+cat sample/1-company.txt | spritz.py [wpm]
 ```
 
 or 
