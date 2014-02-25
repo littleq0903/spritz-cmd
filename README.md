@@ -1,6 +1,8 @@
 spritz-cmd
 ==========
 
+[Demo](https://asciinema.org/a/7882)
+
 The command-line version of implementation which is inspired by a cool reading tool, Spritz.
 
 ## Usage
