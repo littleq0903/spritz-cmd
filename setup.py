@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(
-    name='spritz-cmd',
+    name='spritz',
     version='0.1',
     author='Colin Su',
     author_email='littleq0903@gmail.com',
