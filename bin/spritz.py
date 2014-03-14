@@ -49,7 +49,7 @@ def print_word(word, orpConfig):
     orp, prefix, postfix = orpConfig
     stringToPrint = " " * prefix + insert_color(word, orp-1) + " " * postfix
 
-    print "\r%s" % stringToPrint, 
+    print ("\r%s" % stringToPrint, end='')
     sys.stdout.flush()
 
 def spritz(wpm, reading):
@@ -83,7 +83,7 @@ if __name__ == '__main__':
         try:
             wpm = int(sys.argv[1])
         except:
-            print "<wpm> need to be an integer"
+            print ("<wpm> need to be an integer")
             exit(1)
     else:
         wpm = 250
