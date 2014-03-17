@@ -7,7 +7,7 @@ The command-line version of implementation which is inspired by a cool reading t
 
 ![spritz](https://f.cloud.github.com/assets/374786/2434663/d2dd4ee8-adb7-11e3-9385-8b908f737167.png)
 
-## install
+## Installation
 
 via setup.py:
 
