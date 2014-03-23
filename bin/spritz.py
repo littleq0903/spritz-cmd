@@ -29,7 +29,7 @@ def parse_article(article):
     word :: single word
     sign :: <pause>
     """
-    charToRemoved = ",.!"
+    charToRemoved = ",.!\xad"
 
     for eachChar in charToRemoved:
         article = article.replace(eachChar, "")
