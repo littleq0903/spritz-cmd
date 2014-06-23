@@ -8,6 +8,7 @@ import time
 import math
 import fileinput
 
+
 def to_unicode(text, encoding='utf-8'):
     """Convert ``text`` to unicode using ``encoding``.
 
@@ -69,7 +70,7 @@ def find_max(reading):
 #   Output Functions                             #
 ##################################################
 
-def insert_color(word, orp):
+def color_orp_char(word, orp):
     """Change color of the ORP letter in ``word`` to red.
 
     :param word: the word to be color-coded
@@ -80,7 +81,7 @@ def insert_color(word, orp):
     :rytpe: ``unicode``
     """
     color_red = '\x1b[91m'
-    color_restore = '\x1b[0m'    
+    color_restore = '\x1b[0m'
     chars = list(word)
     chars.insert(orp, color_red)
     chars.insert((orp + 2), color_restore)
@@ -98,13 +99,13 @@ def print_word(word, orp_config):
     """
     (orp, prefix, postfix) = orp_config
     orp = orp - 1           # change for Python list indexing
-    print_string = (" " * prefix) + insert_color(word, orp) + (" " * postfix)
+    print_string = (" " * prefix) + color_orp_char(word, orp) + (" " * postfix)
 
     print("\r{}".format(print_string))
     sys.stdout.flush()
 
 ##################################################
-#   Key Functions                                #
+#   Clean-Up Functions                           #
 ##################################################
 
 def parse_article(article):
@@ -125,6 +126,10 @@ def parse_article(article):
 
     return article.split()
 
+##################################################
+#   Spritz Function                              #
+##################################################
+
 def spritz(wpm, reading):
     """"Spritz" the ``reading``.
 
@@ -136,6 +141,8 @@ def spritz(wpm, reading):
     :rytpe: ``None``
     """
     sleep_interval = (60.0 / wpm)
+    
+    reading = parse_article(reading)
     max_length = find_max(reading)
 
     for word in reading:
@@ -147,7 +154,6 @@ def spritz(wpm, reading):
 
         time.sleep(sleep_interval + word_sleep_interval)
         orp_config = calculate_spaces(word, max_length)
-        #print(word)
         print_word(word, orp_config)
 
 ##################################################
@@ -170,8 +176,9 @@ def main():
     
     for line in fileinput.input(sys.argv[2:]):
         article += to_unicode(line)
-    reading = parse_article(article)
-    spritz(wpm, reading)
+    
+    spritz(wpm, article)
+
 
 if __name__ == '__main__':
     main()
