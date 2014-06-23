@@ -172,7 +172,7 @@ def main():
     article = ""
     
     for line in fileinput.input(sys.argv[2:]):
-        article += line
+        article += to_unicode(line)
     reading = parse_article(article)
     spritz(wpm, reading)
 
