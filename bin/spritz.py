@@ -79,16 +79,15 @@ def insert_color(word, orp):
     :returns: word with ORP letter in red
     :rytpe: ``unicode``
     """
-    color_red = "\033[91m"
-    color_restore = "\033[0m"
-
+    color_red = '\x1b[91m'
+    color_restore = '\x1b[0m'    
     chars = list(word)
     chars.insert(orp, color_red)
     chars.insert((orp + 2), color_restore)
     return ''.join(chars)
 
 def print_word(word, orp_config):
-    """Pretty print `word` with spritz color formatting
+    """Pretty print ``word`` with spritz color formatting
 
     :param word: the word to be color-coded
     :type word: ``unicode``
