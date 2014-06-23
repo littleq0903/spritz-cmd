@@ -55,8 +55,7 @@ def calculate_spaces(word, max_length):
     return (orp, prefix_space, postfix_space)
 
 def find_max(reading):
-    """
-    Find longest word in ``reading``.
+    """Find longest word in ``reading``.
 
     :param reading: the full string object to be spritzed
     :type reading: ``unicode``
@@ -110,8 +109,7 @@ def print_word(word, orp_config):
 ##################################################
 
 def parse_article(article):
-    """
-    Clean up input ``article`` and insert appropriate pauses.
+    """Clean up input ``article`` and insert appropriate pauses.
     
     :param article: the full string object to be spritzed
     :type article: ``unicode``
