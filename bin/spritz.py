@@ -35,8 +35,12 @@ def get_orp(integer):
     :returns: value of ORP
     :rytpe: ``integer``
     """
-    percentage = 0.45
-    return int(math.ceil(integer * percentage))
+    percentage = 0.35
+    orp = int(math.ceil(integer * percentage))
+    if orp > 5:
+        return 5
+    else:
+        return orp
 
 def calculate_spaces(word, max_length):
     """Determine buffer spaces for ``word`` given the ``max_length``.
@@ -49,7 +53,10 @@ def calculate_spaces(word, max_length):
     :rytpe: ``tuple`` of ``integers``
     """
     max_orp = get_orp(max_length)
-    orp = get_orp(len(word))
+    if len(word) < 3:
+        orp = len(word)
+    else:
+        orp = get_orp(len(word))
     prefix_space = (max_orp - orp)
     postfix_space = (max_length - len(word) - prefix_space)
     
