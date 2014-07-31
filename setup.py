@@ -3,8 +3,8 @@ from distutils.core import setup
 setup(
     name='spritz',
     version='0.1',
-    author='Colin Su',
-    author_email='littleq0903@gmail.com',
+    authors=['Colin Su', 'Stephen Margheim'], 
+    author_emails=['littleq0903@gmail.com', 'stephen.margheim@gmail.com'],
     scripts=['bin/spritz.py'],
     license='LICENSE',
     description='Command-line version of Spritz',
